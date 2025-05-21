@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-lang="title">Dice Roller</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="lang-toggle">
+    <button onclick="setLanguage('en')">English</button>
+    <button onclick="setLanguage('es')">Español</button>
+  </div>
+
+  <div class="container">
+    <h1 data-lang="heading">🎲 Dice Roller</h1>
+    <input
+      type="text"
+      id="diceInput"
+      placeholder="e.g. 3d6kh2, 5d10u, 4d8kl1"
+      data-placeholder-en="e.g. 3d6kh2, 5d10u, 4d8kl1"
+      data-placeholder-es="p.ej. 3d6kh2, 5d10u, 4d8kl1"
+    />
+    <button onclick="rollDice()" data-lang="rollBtn">Roll</button>
+    <div id="result"></div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const translations = {
+      en: {
+        title: "Dice Roller",
+        heading: "🎲 Dice Roller",
+        rollBtn: "Roll"
+      },
+      es: {
+        title: "Lanzador de Dados",
+        heading: "🎲 Lanzador de Dados",
+        rollBtn: "Lanzar"
+      }
+    };
+
+    function setLanguage(lang) {
+      const elements = document.querySelectorAll("[data-lang]");
+      elements.forEach(el => {
+        const key = el.getAttribute("data-lang");
+        el.textContent = translations[lang][key];
+      });
+
+      // Set placeholder
+      const input = document.getElementById("diceInput");
+      input.placeholder = input.getAttribute(`data-placeholder-${lang}`);
+    }
+
+    // Set default language on load
+    window.onload = () => setLanguage("en");
+  </script>
+</body>
+</html>
