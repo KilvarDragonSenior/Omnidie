@@ -55,5 +55,19 @@
     // Set default language on load
     window.onload = () => setLanguage("en");
   </script>
+  <button id="helpButton" class="help-btn">❔ Help</button>
+  <div id="helpModal" class="modal hidden">
+    <div class="modal-content">
+      <span id="closeHelp" class="close">&times;</span>
+      <h2>Help / Ayuda</h2>
+      <p><strong>English:</strong> Type your roll like <code>3d6</code>, <code>4d8kh2</code>, <code>2d10u</code>, or <code>5d12kl3</code>.</p>
+      <p><strong>Español:</strong> Escribe tu tirada como <code>3d6</code>, <code>4d8kh2</code>, <code>2d10u</code>, o <code>5d12kl3</code>.</p>
+      <ul>
+        <li><code>khN</code> – keep highest N rolls</li>
+        <li><code>klN</code> – keep lowest N rolls</li>
+        <li><code>u</code> – keep unique rolls (duplicates are rerolled once)</li>
+      </ul>
+    </div>
+  </div>  
 </body>
 </html>
