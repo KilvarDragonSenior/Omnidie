@@ -150,3 +150,21 @@ function addToHistory(input, finalRolls, total) {
     list.removeChild(history.pop());
   }
 }
+// Help Modal functionality
+const helpButton = document.getElementById("helpButton");
+const helpModal = document.getElementById("helpModal");
+const closeHelp = document.getElementById("closeHelp");
+
+helpButton.addEventListener("click", () => {
+  helpModal.classList.remove("hidden");
+});
+
+closeHelp.addEventListener("click", () => {
+  helpModal.classList.add("hidden");
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === helpModal) {
+    helpModal.classList.add("hidden");
+  }
+});
